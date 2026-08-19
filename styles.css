@@ -11,11 +11,20 @@
   -moz-osx-font-smoothing:grayscale;
 }
 
+/* Light theme overrides when data-theme="light" is set on the root */
+:root[data-theme="light"]{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --text:#0b1220;
+  --accent:#0ea5b7;
+}
+
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;
-  background:linear-gradient(180deg,var(--bg),#07101a);
+  background:linear-gradient(180deg,var(--bg),#e9eef3);
   color:var(--text);
   line-height:1.45;
   font-size:16px;
@@ -30,7 +39,7 @@ body{
 
 /* Header */
 .site-header{
-  border-bottom:1px solid rgba(255,255,255,0.03);
+  border-bottom:1px solid rgba(0,0,0,0.06);
   background:transparent;
 }
 .header-inner{
@@ -40,17 +49,41 @@ body{
   justify-content:space-between;
   padding:1rem 0;
 }
+
+.header-right{ display:flex; gap:0.5rem; align-items:center }
+
 .name{font-size:1.25rem;margin:0;font-weight:700}
 .role{margin:0;color:var(--muted);font-weight:500}
+
+/* Theme toggle button */
+.theme-toggle{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:var(--text);
+  padding:0.45rem;
+  border-radius:8px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+.theme-toggle:focus{outline:3px solid rgba(0,188,212,0.18);outline-offset:2px}
+
+/* In light theme make the toggle border subtle */
+:root[data-theme="light"] .theme-toggle{
+  border:1px solid rgba(11,18,32,0.06);
+}
 
 /* Contacts (stacked on mobile) */
 .contacts{display:flex;gap:0.5rem;flex-direction:row;flex-wrap:wrap}
 .contact-link{
   color:var(--accent);
   text-decoration:none;
-  background:rgba(0,0,0,0.15);
+  background:rgba(0,0,0,0.08);
   padding:0.4rem 0.6rem;border-radius:8px;font-weight:600;font-size:0.9rem;
 }
+:root[data-theme="light"] .contact-link{ background:rgba(14,165,183,0.06); }
+
 .contact-link:focus{outline:3px solid rgba(0,188,212,0.18);outline-offset:2px}
 
 /* Cards */
@@ -62,6 +95,11 @@ body{
   border-radius:var(--radius);
   box-shadow:0 6px 18px rgba(2,6,12,0.6);
 }
+:root[data-theme="light"] .card{
+  background:linear-gradient(180deg, rgba(11,18,32,0.02), rgba(11,18,32,0.01));
+  border:1px solid rgba(11,18,32,0.04);
+  box-shadow:0 6px 18px rgba(11,18,32,0.06);
+}
 .card h2{margin-top:0;color:var(--text)}
 
 /* Skills */
@@ -70,6 +108,7 @@ body{
   background:rgba(255,255,255,0.03);
   padding:0.4rem 0.6rem;border-radius:8px;color:var(--muted);font-weight:600;font-size:0.9rem;
 }
+:root[data-theme="light"] .skill-list li{ background:rgba(11,18,32,0.03); }
 
 /* Projects */
 .projects-grid{margin-top:0.5rem;min-height:80px;display:flex;align-items:center;justify-content:center;gap:1rem;flex-direction:column}
@@ -84,6 +123,10 @@ body{
   width:100%;
   max-width:720px;
   box-shadow:0 6px 14px rgba(2,6,12,0.5);
+}
+:root[data-theme="light"] .project-card{
+  background: linear-gradient(180deg, rgba(11,18,32,0.015), rgba(11,18,32,0.01));
+  border:1px solid rgba(11,18,32,0.03);
 }
 .project-title{margin:0 0 0.25rem 0;font-size:1.05rem;color:var(--text)}
 .project-desc{margin:0 0 0.5rem 0;color:var(--muted)}
@@ -106,4 +149,33 @@ body{
   #projects{grid-column:1/-1}
   .projects-grid{flex-direction:row;justify-content:flex-start}
   .project-card{max-width:480px}
+}
+
+/* Perfil: imagen circular responsive */
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 0.75rem; /* espacio entre foto y texto */
+  flex-shrink: 0;
+}
+
+/* Tamaño responsive: máximo 100px, mínimo 64px (ajustable) */
+.profile-photo {
+  width: clamp(64px, 12vw, 100px);
+  height: clamp(64px, 12vw, 100px);
+  border-radius: 50%;
+  overflow: hidden;
+  flex: 0 0 auto;
+  border: 2px solid rgba(255,255,255,0.12); /* borde fino, visible en tema oscuro */
+  box-shadow: 0 4px 12px rgba(2,6,12,0.6);
+  background-color: rgba(255,255,255,0.02); /* fallback si la imagen tarda en cargar */
+}
+:root[data-theme="light"] .profile-photo{ border: 2px solid rgba(11,18,32,0.06); }
+
+/* La imagen cubre el contenedor sin deformarse */
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
