@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Matias Huanaco</title>
+
+  <!-- Google Font: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div>
+        <h1 class="name">Matias Huanaco</h1>
+        <p class="role">Estudiante</p>
+      </div>
+      <nav aria-label="Enlaces de contacto" class="contacts">
+        <a href="mailto:matiashuanaco50@gmail.com" class="contact-link">matiashuanaco50@gmail.com</a>
+        <a href="tel:+541127642937" class="contact-link">+54 11 2764 2937</a>
+        <a href="https://www.linkedin.com/in/matias-huanaco-458558221/" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main" role="main">
+    <section id="about" class="card" aria-labelledby="about-title">
+      <h2 id="about-title">Sobre mí</h2>
+      <p>
+        Hola — soy Matias Huanaco, estudiante con interés en desarrollo web.
+        Aquí comparto mi información de contacto, conocimientos y proyectos.
+      </p>
+    </section>
+
+    <section id="skills" class="card" aria-labelledby="skills-title">
+      <h2 id="skills-title">Conocimientos</h2>
+      <p>
+        Trabajo con herramientas y técnicas de Inteligencia Artificial como apoyo en el desarrollo de software:
+        integración de APIs de IA (por ejemplo modelos LLM), diseño de prompts (prompt engineering),
+        uso de IA para generación de código, automatización de tareas y soporte en testing y debugging.
+        Puedo implementar soluciones donde la IA se utiliza como herramienta para aumentar la productividad y automatizar flujos de trabajo.
+      </p>
+
+      <ul class="skill-list" aria-hidden="false">
+        <li>HTML</li>
+        <li>CSS (responsive, mobile-first)</li>
+        <li>JavaScript (ES6+)</li>
+        <li>Integración de APIs</li>
+        <li>IA / Modelos LLM (integración y uso como herramienta)</li>
+        <li>Prompt engineering</li>
+        <li>Git y control de versiones</li>
+      </ul>
+    </section>
+
+    <section id="education" class="card" aria-labelledby="education-title">
+      <h2 id="education-title">Educación</h2>
+      <p>Formación y cursos realizados:</p>
+      <ul class="skill-list" aria-hidden="false">
+        <li>Empujar IT</li>
+        <li>Sistema computarizado 3D</li>
+        <li>Reparación de Celulares/Tablets</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="card" aria-labelledby="projects-title">
+      <h2 id="projects-title">Proyectos</h2>
+      <p>A continuación un avance de proyecto en curso:</p>
+
+      <div class="projects-grid" aria-live="polite">
+        <!-- Tarjeta de proyecto añadida -->
+        <article class="project-card" aria-labelledby="proj-en-desarrollo">
+          <h3 id="proj-en-desarrollo" class="project-title">En desarrollo</h3>
+          <p class="project-desc">Demo a presentar el 26/8</p>
+          <p class="project-status"><strong>Estado:</strong> En progreso</p>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <small>© <span id="year"></span> Matias Huanaco — Portfolio</small>
+    </div>
+  </footer>
+</body>
+</html>
